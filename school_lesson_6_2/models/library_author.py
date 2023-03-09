@@ -1,4 +1,6 @@
-from odoo import fields, models
+from datetime import timedelta
+from odoo import fields, models, _
+from odoo.exceptions import UserError
 
 
 class LibraryAuthor(models.Model):
@@ -20,3 +22,12 @@ class LibraryAuthor(models.Model):
 
     def _create_by_user(self, vals):
         return self.sudo().create(vals)
+
+    def write(self, vals):
+        result = fields.Datetime.now() - timedelta(days=30)
+        if result > self.create_date and not self.env.user.has_group(
+                'school_lesson_6_2.group_library_admin'):
+            raise UserError(_("You cannot make changes to the Author "
+                              "since 30 days have passed "
+                              "since the creation date."))
+        return super(LibraryAuthor, self).write(vals)
