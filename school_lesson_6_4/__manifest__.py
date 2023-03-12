@@ -20,6 +20,9 @@
         'views/library_templates.xml',
         'views/library_book_views.xml',
     ],
+    'demo': [
+        'data/library_author_demo.xml',
+    ],
     'support': 'support@garazd.biz',
     'application': False,
     'installable': True,

@@ -19,3 +19,7 @@ class TestAccessRights(TestCommon):
         book.with_user(self.library_admin).read()
         book.with_user(self.library_admin).write({'name': 'Test Book II'})
         book.with_user(self.library_admin).unlink()
+
+    def test_03_library_user_access_rights(self):
+        author = self.env['library.author'].with_user(self.library_user).create(
+            {'first_name': 'Mark', 'last_name': 'Twain'})

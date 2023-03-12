@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="library_book_mark_twain" model="library.author">
+        <field name="first_name">Mark</field>
+        <field name="last_name">Twain</field>
+    </record>
+
+
+</odoo>

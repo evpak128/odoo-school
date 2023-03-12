@@ -17,3 +17,7 @@ class TestAccessRights(TestCommon):
         self.book_demo.with_user(self.library_admin).action_take_in()
         self.assertFalse(self.book_demo.reader_id)
 
+    def test_action_archive_book(self):
+        self.book_demo.action_scrap_book()
+        self.assertFalse(self.book_demo.active)
+
