@@ -13,6 +13,9 @@
                     </page>
                 </notebook>
             </xpath>
+            <xpath expr="//field[@name='reader_id']" position="before">
+                <field name="category_id"/>
+            </xpath>
         </field>
     </record>
 
